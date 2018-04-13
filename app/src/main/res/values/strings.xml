@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">tester</string>
+    <string name="category_prompt">Choose a category</string>
+    <string name="phone">Phone</string>
+    <string name="username">Username</string>
+    <string name="save_changes">save changes</string>
+    <string-array name="category_array">
+        <item>Math</item>
+        <item>Literature</item>
+        <item>Computers</item>
+    </string-array>
+</resources>
