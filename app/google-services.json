@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "387070760062",
+    "firebase_url": "https://trainerapp-f3cbc.firebaseio.com",
+    "project_id": "trainerapp-f3cbc",
+    "storage_bucket": "trainerapp-f3cbc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:387070760062:android:e2b4a2c711f438ce",
+        "android_client_info": {
+          "package_name": "com.example.tester.tester"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "387070760062-fu38ua2vcootvijq2nrrkvi5mlf3n713.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.tester.tester",
+            "certificate_hash": "c7bc05c3a97902e3a9b2697712dd71ed77d2daae"
+          }
+        },
+        {
+          "client_id": "387070760062-bfdc4f41e8kb9joeu6cbk01fs83v8gcg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDvIC44BVFb7dMPsrvY3R51aCRRYAoNGAU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "387070760062-bfdc4f41e8kb9joeu6cbk01fs83v8gcg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
