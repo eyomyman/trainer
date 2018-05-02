@@ -6,16 +6,34 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
+
 public class MainMenu extends AppCompatActivity {
+    private FirebaseAuth firebaseAuth;
+    private Button accountButton;
+    private Button addButton;
+    private Button signOut;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
-        Button accountButton = (Button)findViewById(R.id.accountButton);
-        Button addButton = (Button)findViewById(R.id.addButton);
+        accountButton = (Button) findViewById(R.id.accountButton);
+        addButton = (Button) findViewById(R.id.addButton);
+        signOut = (Button) findViewById(R.id.signOutButton);
+
+        //Checks if user is logged in, if not redirects them to login activity
+        firebaseAuth = FirebaseAuth.getInstance();
+        FirebaseUser user = firebaseAuth.getCurrentUser();
+        if (user == null) {
+            Intent myIntent = new Intent(this, MainMenu.class);
+            startActivity(myIntent);
+        }
 
 
+        //Listeners for menu buttons
         accountButton.setOnClickListener(
                 new Button.OnClickListener(){
                     public void onClick(View v){
@@ -28,6 +46,15 @@ public class MainMenu extends AppCompatActivity {
                 new Button.OnClickListener(){
                     public void onClick(View v){
                         Intent myIntent = new Intent(v.getContext(), AddTask.class);
+                        startActivity(myIntent);
+                    }
+                }
+        );
+        signOut.setOnClickListener(
+                new Button.OnClickListener() {
+                    public void onClick(View v) {
+                        FirebaseAuth.getInstance().signOut();
+                        Intent myIntent = new Intent(v.getContext(), MainActivity.class);
                         startActivity(myIntent);
                     }
                 }
