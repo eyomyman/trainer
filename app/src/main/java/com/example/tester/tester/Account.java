@@ -35,8 +35,6 @@ public class Account extends AppCompatActivity {
     private FirebaseDatabase mFirebaseDatabase;
     private String userID;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,7 +60,7 @@ public class Account extends AppCompatActivity {
         saveButton.setOnClickListener(
                 new Button.OnClickListener(){
                     public void onClick(View v){
-                        //here you save changes to db
+                        //call method to save changes to db
                         UpdateUserData();
                     }
                 }
@@ -74,16 +72,13 @@ public class Account extends AppCompatActivity {
                 // This method is called once with the initial value and again
                 // whenever data at this location is updated.
                 showData(dataSnapshot);
-
             }
 
             @Override
             public void onCancelled(DatabaseError error) {
                 // Failed to read value
-
             }
         });
-
     }
 
     private void showData(DataSnapshot dataSnapshot) {
@@ -115,10 +110,22 @@ public class Account extends AppCompatActivity {
             Toast.makeText(this, "Fields can't be empty", Toast.LENGTH_SHORT).show();
             return;
         }
+        if (username.length() > 14) {
+            Toast.makeText(this, "Username is too long(longer than 14)", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (email.length() > 35 || !email.matches("^[A-Za-z](.*)([@]{1})(.{1,})(\\.)(.{1,})")) {
+            Toast.makeText(this, "E-mail is invalid/too long(longer than 35)", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (phone.length() > 25 || !phone.matches("\\d+")) {
+            Toast.makeText(this, "Phone is not valid", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
 
-        mDatabase.child("users").child(userID).child("username").setValue(username);
-        mDatabase.child("users").child(userID).child("phone").setValue(phone);
-        mDatabase.child("users").child(userID).child("email").setValue(email);
+        mDatabase.child("Users").child(userID).child("username").setValue(username);
+        mDatabase.child("Users").child(userID).child("phone").setValue(phone);
+        mDatabase.child("Users").child(userID).child("email").setValue(email);
     }
 }

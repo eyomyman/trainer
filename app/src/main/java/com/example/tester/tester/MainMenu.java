@@ -21,7 +21,7 @@ public class MainMenu extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
         accountButton = (Button) findViewById(R.id.accountButton);
-        addButton = (Button) findViewById(R.id.addButton);
+        addButton = (Button) findViewById(R.id.addRegisterButton);
         signOut = (Button) findViewById(R.id.signOutButton);
 
         //Checks if user is logged in, if not redirects them to login activity
@@ -50,6 +50,7 @@ public class MainMenu extends AppCompatActivity {
                     }
                 }
         );
+
         signOut.setOnClickListener(
                 new Button.OnClickListener() {
                     public void onClick(View v) {
